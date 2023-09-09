@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to Your Student Dashboard</h1>
+    
+    <!-- Form for entering internship details -->
+    <h2>Enter Internship Details</h2>
+    <form id="internship-details-form">
+        <label for="student-name">Student Name:</label>
+        <input type="text" id="student-name" name="student-name" required><br><br>
+
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year" required><br><br>
+
+        <label for="roll-no">Roll No:</label>
+        <input type="text" id="roll-no" name="roll-no" required><br><br>
+
+        <label for="company-name">Company Name:</label>
+        <input type="text" id="company-name" name="company-name" required><br><br>
+
+        <label for="role">Role:</label>
+        <input type="text" id="role" name="role" required><br><br>
+
+        <label for="stipend">Stipend:</label>
+        <input type="text" id="stipend" name="stipend" required><br><br>
+
+        <label for="duration">Duration of Internship:</label>
+        <input type="text" id="duration" name="duration" required><br><br>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Table to display existing internship details -->
+    <h2>Your Internship Details</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Year</th>
+                <th>Roll No</th>
+                <th>Company Name</th>
+                <th>Role</th>
+                <th>Stipend</th>
+                <th>Duration</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody id="internship-details-list">
+            <!-- Existing internship details will be displayed here -->
+        </tbody>
+    </table>
+
+    <script src="student-dashboard.js"></script>
+</body>
+</html>
