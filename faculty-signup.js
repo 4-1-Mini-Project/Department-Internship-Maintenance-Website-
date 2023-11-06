@@ -1,8 +1,3 @@
-// Import Firebase
-import firebase from 'firebase/app';
-import 'firebase/auth';
-
-// Initialize Firebase with your Firebase project configuration
 const firebaseConfig = {
   apiKey: 'YOUR_API_KEY',
   authDomain: 'YOUR_AUTH_DOMAIN',

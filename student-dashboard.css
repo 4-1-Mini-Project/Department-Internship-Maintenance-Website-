@@ -1,0 +1,129 @@
+body {
+    background-color: #333;
+}
+table {
+    align-items: center;
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+    border-radius: 10px;
+    width: 100%;
+    border-color: #333;
+}
+
+th, td {
+    border: none;
+    text-align: center;
+    padding: 12px;
+    border-radius: 5px 5px 0 0;
+}
+
+th {
+    background-color: rgb(226, 191, 238);
+}
+
+tr:nth-child(even) {
+    background-color: rgb(175, 43, 43);
+}
+
+tr:hover {
+    background-color: rgb(173, 41, 41);
+}
+
+th, td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu {
+    position: fixed;
+    top: 10%;
+    left: 0;
+    width: 100%;
+    background: #333;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu li a:hover {
+    background-color: #555;
+}
+
+
+.image-container {
+
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 10%;
+}
+
+.item-one { 
+    background-image: url('bg1.jpg');
+}
+
+.item-two { 
+    background-image: url('bg2.jpg');
+}
+
+.person-details-form {
+    top: 50%;
+    left: 50%;
+    align-content: center;
+    text-align: center;
+    display: contents;
+    color: #ede5ee;
+}
+
+
+
+.person-details-form input {
+    
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border-color: blueviolet;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #333;
+    color: #fff;
+    text-align: center;
+}
+
+#logout {
+    position: absolute;
+    top: 10%;
+    right: 2%;
+}
+
+#image-overlay {
+    width: 55px; 
+    mix-blend-mode: lighten;
+}

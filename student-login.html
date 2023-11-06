@@ -7,7 +7,7 @@
     <link rel="icon" href="freshchoice_logo.png" type="image/x-icon">
     <style>
         body {
-            background-image: url('login_back.jpg'); /* Replace with your image URL */
+            background-image: url('login_back.jpg'); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -16,6 +16,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        #home-link {
+            position: absolute;
+            top: 2%;
+            left: 1%;
+        }
+
+        #image-overlay {
+            width: 30px; 
+            mix-blend-mode: lighten;
         }
 
         .student-login-form {
@@ -71,16 +82,22 @@
     </style>
 </head>
 <body>
-    <div class="student-login-form">
+    <a id="home-link" href="index.html">
+        <img id="image-overlay" src="home.png" alt="Home">
+    </a>
+    <div class="student-login-form" id="student-login-form">
         <h2 class="login-title">Student Login</h2>
         <form action="loginsubmit" method="GET">
             <label for="email"><i class="fa fa-envelope"></i> Email:</label>
             <input type="email" name="email" id="email" class="cm-input" placeholder="Enter your email address" required>
             <label for="pass"><i class="fa fa-lock"></i> Password:</label>
-            <input id="pass" type="password" name="pwd" class="cm-input" placeholder="Enter your password" required>
+            <input id="password" type="password" name="pwd" class="cm-input" placeholder="Enter your password" required>
             <button type="submit" class="btn-login">Login</button>
         </form>
         <p>Don't have an account? <a href="student-signup.html">Sign up</a></p>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-auth.js"></script>
+    <script type="module" src="student-login.js"></script>
 </body>
 </html>

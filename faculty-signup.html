@@ -7,7 +7,7 @@
     <link rel="icon" href="freshchoice_logo.png" type="image/x-icon">
     <style>
         body {
-            background-image: url('faculty_back.png'); /* Replace with your image URL */
+            background-image: url('faculty_back.png'); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -15,18 +15,29 @@
             margin: 0;
             display: flex;
             align-items: center;
-            justify-content: flex-end; /* Align content to the right */
+            justify-content: flex-end;
+        }
+
+        #home-link {
+            position: absolute;
+            top: 2%;
+            left: 1%;
+        }
+
+        #image-overlay {
+            width: 30px; 
+            mix-blend-mode: lighten;
         }
 
         .faculty-signup-form {
             background: rgba(255, 255, 255, 0.8);
-            width: 300px; /* Adjust width to move it to the right */
+            width: 300px;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
             text-align: center;
-            margin-left: auto; /* Add this to move it to the right */
-            margin-right: 100px; /* Add margin-right */
+            margin-left: auto; 
+            margin-right: 100px; 
         }
 
         .signup-title {
@@ -73,6 +84,9 @@
     </style>
 </head>
 <body>
+    <a id="home-link" href="index.html">
+        <img id="image-overlay" src="home.png" alt="Home">
+    </a>
     <div class="faculty-signup-form">
         <h2 class="signup-title">Faculty Signup</h2>
         <form action="signupsubmit" method="GET">

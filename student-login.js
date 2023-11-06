@@ -1,15 +1,12 @@
-// Import Firebase
-import firebase from 'firebase/app';
-import 'firebase/auth';
-
 // Initialize Firebase with your Firebase project configuration
 const firebaseConfig = {
-  apiKey: 'YOUR_API_KEY',
-  authDomain: 'YOUR_AUTH_DOMAIN',
-  projectId: 'YOUR_PROJECT_ID',
-  storageBucket: 'YOUR_STORAGE_BUCKET',
-  messagingSenderId: 'YOUR_MESSAGING_SENDER_ID',
-  appId: 'YOUR_APP_ID'
+  apiKey: "AIzaSyCmpwwd-pActSCa32M2WT2WGTqkndSP6_E",
+  authDomain: "dept-internship-maintenance.firebaseapp.com",
+  projectId: "dept-internship-maintenance",
+  storageBucket: "dept-internship-maintenance.appspot.com",
+  messagingSenderId: "133911448147",
+  appId: "1:133911448147:web:2a1708e751ce16c34c14a6",
+  measurementId: "G-9YRFBK03HZ"
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -35,3 +32,5 @@ studentLoginForm.addEventListener('submit', (e) => {
       alert(`Login failed: ${errorMessage}`);
     });
 });
+
+// Import Firebase Authentication and initialize Firebase (make sure you've already set up Firebase in your projec
