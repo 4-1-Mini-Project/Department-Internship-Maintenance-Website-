@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('blue.jpg');
+            background-repeat: no-repeat; /* Display the background image only once */
+            background-size: cover; /* Cover the entire viewport */
+            color: #0f0f0f;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            transition: background-color 0.5s; /* Background color transition */
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        button {
+            background-color: #fff; /* Button background color */
+            color: #007BFF; /* Button text color */
+            font-size: 18px;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s; /* Button transitions */
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #e8ecf0; /* Button background color on hover */
+            transform: scale(1.05); /* Button scale on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Student Portal</h1>
+    
+    <button id="display-details">Display Details</button>
+    <button id="fill-registration">Fill Registration Form</button>
+
+    <script>
+        // Add event listeners to the buttons for redirection
+        document.getElementById("display-details").addEventListener("click", function () {
+            // Redirect to the details page (update the URL as needed)
+            window.location.href = "student-dashboard.html";
+        });
+
+        document.getElementById("fill-registration").addEventListener("click", function () {
+            // Redirect to the registration form page (update the URL as needed)
+            window.location.href = "sd.html";
+        });
+    </script>
+</body>
+</html>
