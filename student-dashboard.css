@@ -84,28 +84,7 @@ th, td {
     background-image: url('bg1.jpg');
 }
 
-.item-two { 
-    background-image: url('bg2.jpg');
-}
 
-.person-details-form {
-    top: 50%;
-    left: 50%;
-    align-content: center;
-    text-align: center;
-    display: contents;
-    color: #ede5ee;
-}
-
-
-
-.person-details-form input {
-    
-    padding: 10px;
-    margin: 5px;
-    border-radius: 5px;
-    border-color: blueviolet;
-}
 
 .header {
     position: fixed;
