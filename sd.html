@@ -15,6 +15,7 @@
               name="firstname"
               id="firstname"
               class="formbold-form-input"
+              required
             />
           </div>
           <div>
@@ -24,6 +25,7 @@
               name="lastname"
               id="lastname"
               class="formbold-form-input"
+              required
             />
           </div>
         </div>
@@ -36,6 +38,7 @@
               name="rollno"
               id="rollno"
               class="formbold-form-input"
+              required
             />
           </div>
           <div>
@@ -45,13 +48,14 @@
               name="phone"
               id="phone"
               class="formbold-form-input"
+              required
             />
           </div>
         </div>
 
         <div>
             <label class="formbold-form-label">Year*</label>
-            <select class="formbold-form-input" name="year" id="year">
+            <select class="formbold-form-input" name="year" id="year" required>
             <option value="first">I</option>
             <option value="second">II</option>
             <option value="third">III</option>
@@ -61,7 +65,7 @@
 
         <div>
             <label class="formbold-form-label">Branch*</label>
-            <select class="formbold-form-input" name="branch" id="branch">
+            <select class="formbold-form-input" name="branch" id="branch" required>
             <option value="aiml">AIML</option>
             <option value="cse">CSE</option>
             <option value="ece">ECE</option>
@@ -78,6 +82,7 @@
       name="company"
       id="company"
       class="formbold-form-input"
+      required
     />
   </div>
   <div class="formbold-input-flex">
@@ -88,6 +93,7 @@
         name="stipend"
         id="stipend"
         class="formbold-form-input"
+        required
       />
     </div>
 
@@ -98,18 +104,19 @@
           name="location"
           id="location"
           class="formbold-form-input"
+          required
         />
       </div>
     </div>
     
     <div class="formbold-mb-3">
       <label for="dob" class="formbold-form-label"> Start Date* </label>
-      <input type="date" name="dob" id="dob" class="formbold-form-input" />
+      <input type="date" name="dob" id="dob" class="formbold-form-input" required/>
     </div>
     
     <div class="formbold-mb-3">
       <label for="dob" class="formbold-form-label"> End Date* </label>
-      <input type="date" name="dob" id="dob" class="formbold-form-input" />
+      <input type="date" name="dob" id="dob" class="formbold-form-input" required/>
     </div>
 
   <button class="formbold-btn">Submit</button>

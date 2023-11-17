@@ -16,43 +16,48 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="" class="sign-in-form">
+          <form action="" class="sign-in-form" id = "sign-in-form">
             <h2 class="title">Sign In</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" id = "sign-in-email" placeholder="Username" required/>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" id = "sign-in-password" placeholder="Password" required/>
             </div>
-            <input type="submit" value="Login" class="btn solid" />
+            <button type="submit"  class="btn solid" >Login</button>
           </form>
 
 
-          <form action="" class="sign-up-form">
+          <form action="" class="sign-up-form" id="sign-up-form">
             <h2 class="title">Sign Up</h2>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
+              <input type="email" id = "sign-up-email" placeholder="Email" />
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" id = "sign-up-password" placeholder="Password" />
             </div>
-            <input type="submit" value="Sign Up" class="btn solid" />
+            <button type="submit" class="btn solid" >SignUp</button>
 
           </form>
         </div>
       </div>
       <div class="panels-container">
-
+        <a id="home-link" href="index.html">
+          <img id="image-overlay" src="home2.png" alt="Home">
+        </a>
         <div class="panel left-panel">
             <div class="content">
                 <h3>New here?</h3>
                 <p>Ready to share your internship journey? Sign up now and join the AIML intern squad today!</p>
                 <button class="btn transparent" id="sign-up-btn">Sign Up</button>
             </div>
+            <a id="home-link" href="index.html">
+              <img id="image-overlay" src="home2.png" alt="Home">
+            </a>
             <img src="./log.svg" class="image" alt="">
         </div>
 

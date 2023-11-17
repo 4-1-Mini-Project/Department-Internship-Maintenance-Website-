@@ -1,0 +1,61 @@
+ <!DOCTYPE html>
+ <html lang="en" title="Coding design">
+ 
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Faculty Dashboard</title>
+     <link rel="stylesheet" href="faculty_dashboard.css">
+     
+ </head>
+ 
+ <body>
+     <main class="table">
+         <section class="table__header">
+             <h1>Student-Interns</h1>
+             <div class="input-group">
+                 <input type="search" placeholder="Search Data...">
+                 <img src="search.png" alt="">
+             </div>
+             <div class="export__file">
+                 <label for="export-file" class="export__file-btn" title="Export File"></label>
+                 <input type="checkbox" id="export-file">
+                 <div class="export__file-options">
+                     <label>Export As &nbsp; &#10140;</label>
+                     <label for="export-file" id="toPDF">PDF <img src="pdf.png" alt=""></label>
+                     <label for="export-file" id="toJSON">JSON <img src="json.png" alt=""></label>
+                     <label for="export-file" id="toCSV">CSV <img src="csv.png" alt=""></label>
+                     <label for="export-file" id="toEXCEL">EXCEL <img src="excel.png" alt=""></label>
+                 </div>
+             </div>
+         </section>
+         <section class="table__body">
+             <table id = "interns">
+                 <thead>
+                     <tr>
+                        <th>Roll No <span class="icon-arrow">&UpArrow;</span></th> 
+                        <th>Student Name</th>
+                        <th>Year <span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Branch <span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Company Name</th>
+                        <th>Stipend <span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Duration</th>
+                        <th>Location</th>
+                     </tr>
+                 </thead>
+                 <tbody id="internship-details-list">
+                     
+                 </tbody>
+             </table>
+         </section>
+     </main>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/polyfills.umd.js"></script>
+
+     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+     <script src="faculty_dashboard.js"></script>
+ </body>
+ 
+ </html>

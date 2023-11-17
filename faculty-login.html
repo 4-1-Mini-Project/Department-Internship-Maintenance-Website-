@@ -1,100 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculty Login</title>
-    <link rel="icon" href="freshchoice_logo.png" type="image/x-icon">
-    <style>
-        body {
-            background-image: url('faculty_back.png'); 
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            align-items: center;
-        }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignIn&SignUp</title>
+    <link rel="stylesheet" type="text/css" href="./faculty-login.css" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+  
+  </head>
+  <body>
+    
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <form action="" class="sign-in-form" id = "sign-in-form">
+            <h2 class="title">Sign In</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" id = "sign-in-email" placeholder="Username" required/>
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" id = "sign-in-password" placeholder="Password" required/>
+            </div>
+            <button type="submit"  class="btn solid" >Login</button>
+          </form>
 
-        #home-link {
-            position: absolute;
-            top: 2%;
-            left: 1%;
-        }
 
-        #image-overlay {
-            width: 30px; 
-            mix-blend-mode: lighten;
-        }
-        .faculty-login-form {
-            background: rgba(255, 255, 255, 0.8);
-            width: 300px;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            margin-left: auto; 
-            margin-right: 100px;
-        }
+          <form action="" class="sign-up-form" id="sign-up-form">
+            <h2 class="title">Sign Up</h2>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id = "sign-up-email" placeholder="Email" />
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input type="password" id = "sign-up-password" placeholder="Password" />
+            </div>
+            <button type="submit" class="btn solid" >SignUp</button>
 
-        .login-title {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #333;
-        }
+          </form>
+        </div>
+      </div>
+      <div class="panels-container">
+        <a id="home-link" href="index.html">
+          <img id="image-overlay" src="home2.png" alt="Home">
+        </a>
+        <div class="panel left-panel">
+            <div class="content">
+                <h3>New here?</h3>
+                <p>Are you a faculty member eager to share your experience? Join the AIML faculty team today! Sign up now to contribute to our community and enhance the learning journey.</p>
+                <button class="btn transparent" id="sign-up-btn">Sign Up</button>
+            </div>
+            <a id="home-link" href="index.html">
+              <img id="image-overlay" src="home2.png" alt="Home">
+            </a>
+            <img src="faculty-signin.svg" class="image" alt="">
+        </div>
 
-        .cm-input {
-            display: block;
-            box-sizing: border-box;
-            padding: 10px;
-            width: 100%;
-            margin: 14px auto;
-            border-radius: 20px;
-            border: 1px solid #ccc;
-        }
-
-        .cm-input:focus {
-            outline: 0;
-            border-color: #f9cb81;
-        }
-
-        .btn-login {
-            display: block;
-            width: 100%;
-            padding: 10px;
-            background-color: #007BFF;
-            color: #fff;
-            border: 0;
-            border-radius: 20px;
-            cursor: pointer;
-        }
-
-        .btn-login:focus {
-            outline: 0;
-        }
-
-        .btn-login:hover {
-            opacity: 0.8;
-            transition: 0.3s;
-        }
-    </style>
-</head>
-<body>
-    <a id="home-link" href="index.html">
-        <img id="image-overlay" src="home.png" alt="Home">
-    </a>
-    <div class="faculty-login-form">
-        <h2 class="login-title">Faculty Login</h2>
-        <form action="loginsubmit" method="GET">
-            <label for="email"><i class="fa fa-envelope"></i> Email:</label>
-            <input type="email" name="email" id="email" class="cm-input" placeholder="Enter your email address" required>
-            <label for="pass"><i class="fa fa-lock"></i> Password:</label>
-            <input id="pass" type="password" name="pwd" class="cm-input" placeholder="Enter your password" required>
-            <button type="submit" class="btn-login">Login</button>
-        </form>
-        <p>Don't have an account? <a href="faculty-signup.html">Sign up</a></p>
+        <div class="panel right-panel">
+            <div class="content">
+                <h3>One of us?</h3>
+                <p>Welcome back, AIML alchemists! Dive into the wealth of intern-tales, just a login away</p>
+                <button class="btn transparent" id="sign-in-btn">Sign In</button>
+            </div>
+            <img src="faculty-signup.svg" class="image" alt="">
+        </div>
+      </div>
     </div>
-</body>
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-auth.js"></script>
+    <script src="./faculty-login.js"></script>
+  </body>
 </html>

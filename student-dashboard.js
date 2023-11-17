@@ -1,25 +1,30 @@
-const menuItems = document.querySelectorAll('.menu-item');
-        const imageContainers = document.querySelectorAll('.image-container');
+document.addEventListener("DOMContentLoaded", function () {
+    // Get all menu items
+    var menuItems = document.querySelectorAll('.menu-item');
 
-        menuItems.forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = item.getAttribute('data-target');
-                const imageContainer = document.getElementById(targetId);
-                const currentlyDisplayed = imageContainer.style.display;
-
-                // Hide all image containers
-                imageContainers.forEach(container => {
-                    container.style.display = 'none';
-                });
-
-                // Show the selected image container if it's not currently displayed
-                if (currentlyDisplayed !== 'block') {
-                    imageContainer.style.display = 'block';
-                }
-            });
+    // Add click event listener to each menu item
+    menuItems.forEach(function (menuItem) {
+        menuItem.addEventListener('click', function () {
+            var targetId = menuItem.getAttribute('data-target');
+            var targetElement = document.getElementById(targetId);
+            // Toggle the visibility of the target element
+            if (targetElement.style.display === 'flex') {
+                targetElement.style.display = 'none';
+            } else {
+                targetElement.style.display = 'flex';
+            }
+            if (targetId === 'item-one') {
+                var  temp = document.getElementById('item-two');
+            }
+            else {
+                var  temp = document.getElementById('item-one');
+            }
+            temp.style.display = 'none';
+            
         });
- 
+    });
+});
+
 // Initialize Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyCmpwwd-pActSCa32M2WT2WGTqkndSP6_E",
@@ -39,20 +44,17 @@ const dataForm = document.getElementById('internship-details-form');
 const dataTable = document.getElementById('data-table');
 const dataList = document.getElementById('internship-details-list');
 const loadData = document.getElementById('loadData');
-let currentUserEmail = null;
-
-// Listen for authentication state changes
-auth.onAuthStateChanged((user) => {
-  if (user) {
-      currentUserEmail = user.email;
-      // Fetch and display user-specific data
-      //fetchUserData(currentUserEmail);
-  } else {
-      currentUserEmail = null;
-      // Handle when the user is not logged in
-  }
-
-});
+const user = firebase.auth().currentUser;
+console.log(user);
+let currentUserEmail = null; 
+if (user !== null) {
+  currentUserEmail =  user.email;
+  console.log(currentUserEmail)
+} else {
+    console.log('ws');
+  // No user is signed in.
+}
+console.log(currentUserEmail);
 // Event listener for the form submission
 dataForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -89,23 +91,24 @@ dataForm.addEventListener('submit', (e) => {
     });
 });
 
-// Function to fetch user-specific data
-document.addEventListener('DOMContentLoaded', (e) => {
-    
-    const loadData = document.getElementById('loadData');
 
-    loadData.addEventListener('click', (e) => {
-        e.preventDefault();
-        const email = currentUserEmail;
-        db.collection("internships").where("email", "==", email)
-            .onSnapshot((querySnapshot) => {
-                const dataTable = document.getElementById('data-table');
-                const dataList = document.getElementById('internship-details-list');
-                dataTable.innerHTML = "<thead><tr><th>Student Name</th><th>Roll No</th><th>Year</th><th>Branch</th><th>Company Name</th><th>Role</th><th>Stipend</th><th>Duration</th><th>Location</th></tr></thead>";
-                dataList.innerHTML = ""; // Clear the list
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                
+
+
+// Liste
+// Event listener for the form submission
+
+// Function to fetch user-specific data
+
+
+document.addEventListener('DOMContentLoaded', (e) => {
+    const email = getUserEmail();
+    console.log(email);
+    db.collection("internships").where("email", "==", email)
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                console.log(data);
                 const name = data.name;
                 const roll = data.rollNo;
                 const year = data.year;
@@ -118,8 +121,9 @@ document.addEventListener('DOMContentLoaded', (e) => {
                 // Add data to the table
                 const newRow = document.createElement('tr');
                 newRow.innerHTML = `
-                    <td>${name}</td>
+                    
                     <td>${roll}</td>
+                    <td>${name}</td>
                     <td>${year}</td>
                     <td>${branch}</td>
                     <td>${company}</td>
@@ -136,4 +140,5 @@ document.addEventListener('DOMContentLoaded', (e) => {
     }
 
 );
-});
+
+

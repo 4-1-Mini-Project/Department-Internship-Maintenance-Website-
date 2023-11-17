@@ -399,3 +399,15 @@ form.sign-in-form {
     left: 50%;
   }
 }
+
+#home-link {
+  position: absolute;
+  top: 2%;
+  left: 1%;
+}
+
+
+#image-overlay {
+  width: 30px; 
+  mix-blend-mode: darken;
+}

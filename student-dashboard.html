@@ -9,6 +9,7 @@
 <body>
     <div class="header">
         <h1>Student Dashboard</h1>
+
         <a id="logout" href="index.html">
             <img id="image-overlay" src="logout.png" alt="logout">
         </a>
@@ -16,35 +17,176 @@
     <div class="menu">
         <ul>
             <li><a href="#" class="menu-item" data-target="item-one" id = "loadData">Internship Details</a></li>
+            <li><a href="#" class="menu-item" data-target="item-two">Form</a></li>
         </ul>
     </div>
 
-    <div class="image-container item-one" id="item-one">
-        <div class="table">
-            <table id="data-table">
-                <thead>
-                    <tr>
-                        <th>Student Name</th>
-                        <th>Roll No</th>
-                        <th>Year</th>
-                        <th>Branch</th>
-                        <th>Company Name</th>
-                        <th>Stipend</th>
-                        <th>Duration</th>
-                        <th>Location</th>
-                    </tr>
-                </thead>
-                <tbody id="internship-details-list">
-                    <tr></tr>
-                    <!-- Existing internship details will be displayed here -->
-                </tbody>
-            </table>
+    <div class="container" id="item-one">
+        <main class="table">
+            <section class="table__header">
+                <h1>Student-Interns</h1>
+                <div class="input-group">
+                    <input type="search" placeholder="Search Data...">
+                    <img src="search.png" alt="">
+                </div>
+            </section>
+            <section class="table__body">
+                <table id = "interns">
+                    <thead>
+                        <tr>
+                           <th>Roll No <span class="icon-arrow">&UpArrow;</span></th> 
+                           <th>Student Name</th>
+                           <th>Year <span class="icon-arrow">&UpArrow;</span></th>
+                           <th>Branch <span class="icon-arrow">&UpArrow;</span></th>
+                           <th>Company Name</th>
+                           <th>Stipend <span class="icon-arrow">&UpArrow;</span></th>
+                           <th>Duration</th>
+                           <th>Location</th>
+                        </tr>
+                    </thead>
+                    <tbody id="internship-details-list">
+                        
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <div class="container" id="item-two">
+        <div class="person-details-form">
+            <div class="formbold-main-wrapper">
+                <div class="formbold-form-wrapper">
+                  <div class="formbold-event-wrapper">
+                   <img src="sdash.png"> 
+                  <form id = "internship-details-form" action="https://formbold.com/s/FORM_ID" method="POST">
+                    <h3 class="formbold-form-title">Enter your Details</h3>
+              
+                    <div class="formbold-input-flex">
+                      <div>
+                        <label for="firstname" class="formbold-form-label">
+                          First name*
+                        </label>
+                        <input
+                          type="text"
+                          name="firstname"
+                          id="firstname"
+                          class="formbold-form-input"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label for="lastname" class="formbold-form-label"> Last name* </label>
+                        <input
+                          type="text"
+                          name="lastname"
+                          id="lastname"
+                          class="formbold-form-input"
+                          required
+                        />
+                      </div>
+                    </div>
+              
+                    <div class="formbold-input-flex">
+                      <div>
+                        <label for="rollno" class="formbold-form-label"> Roll No.* </label>
+                        <input
+                          type="text"
+                          name="rollno"
+                          id="rollno"
+                          class="formbold-form-input"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label for="phone" class="formbold-form-label"> Phone number* </label>
+                        <input
+                          type="text"
+                          name="phone"
+                          id="phone"
+                          class="formbold-form-input"
+                          required
+                        />
+                      </div>
+                    </div>
+            
+                    <div>
+                        <label class="formbold-form-label">Year*</label>
+                        <select class="formbold-form-input" name="year" id="year" required>
+                        <option value="first">I</option>
+                        <option value="second">II</option>
+                        <option value="third">III</option>
+                        <option value="fourth">IV</option>
+                        </select>
+                    </div>
+            
+                    <div>
+                        <label class="formbold-form-label">Branch*</label>
+                        <select class="formbold-form-input" name="branch" id="branch" required>
+                        <option value="aiml">AIML</option>
+                        <option value="cse">CSE</option>
+                        <option value="ece">ECE</option>
+                        <option value="eee">EEE</option>
+                        <option value="it">IT</option>
+                        </select>
+                    </div>
+                </div>
+              
+              <div>
+                <label for="company" class="formbold-form-label"> Company* </label>
+                <input
+                  type="text"
+                  name="company"
+                  id="company"
+                  class="formbold-form-input"
+                  required
+                />
+              </div>
+              <div class="formbold-input-flex">
+                <div>
+                  <label for="stipend" class="formbold-form-label"> Stipend* </label>
+                  <input
+                    type="text"
+                    name="stipend"
+                    id="stipend"
+                    class="formbold-form-input"
+                    required
+                  />
+                </div>
+            
+                <div>
+                    <label for="location" class="formbold-form-label"> Location* </label>
+                    <input
+                      type="text"
+                      name="location"
+                      id="location"
+                      class="formbold-form-input"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div class="formbold-mb-3">
+                  <label for="dob" class="formbold-form-label"> Start Date* </label>
+                  <input type="date" name="dob" id="dob" class="formbold-form-input" required/>
+                </div>
+                
+                <div class="formbold-mb-3">
+                  <label for="dob" class="formbold-form-label"> End Date* </label>
+                  <input type="date" name="dob" id="dob" class="formbold-form-input" required/>
+                </div>
+            
+              <button class="formbold-btn">Submit</button>
+            </form>
+            </div>
+            </div>
+            </div>
         </div>
     </div>
-      </style>
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/polyfills.umd.js"></script>
+
+     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
     <script src="student-dashboard.js"></script>
 </body>
 </html>
