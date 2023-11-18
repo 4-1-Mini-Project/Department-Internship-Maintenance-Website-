@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Signup</title>
+    <link rel="icon" href="freshchoice_logo.png" type="image/x-icon">
+    <style>
+        body {
+            background-image: url('faculty_back.png'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        #home-link {
+            position: absolute;
+            top: 2%;
+            left: 1%;
+        }
+
+        #image-overlay {
+            width: 30px; 
+            mix-blend-mode: lighten;
+        }
+
+        .faculty-signup-form {
+            background: rgba(255, 255, 255, 0.8);
+            width: 300px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin-left: auto; 
+            margin-right: 100px; 
+        }
+
+        .signup-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .cm-input {
+            display: block;
+            box-sizing: border-box;
+            padding: 10px;
+            width: 100%;
+            margin: 14px auto;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .cm-input:focus {
+            outline: 0;
+            border-color: #f9cb81;
+        }
+
+        .btn-signup {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: #fff;
+            border: 0;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .btn-signup:focus {
+            outline: 0;
+        }
+
+        .btn-signup:hover {
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <a id="home-link" href="index.html">
+        <img id="image-overlay" src="home.png" alt="Home">
+    </a>
+    <div class="faculty-signup-form">
+        <h2 class="signup-title">Faculty Signup</h2>
+        <form action="signupsubmit" method="GET">
+            <label for="email"><i class="fa fa-envelope"></i> Email:</label>
+            <input type="email" name="email" id="email" class="cm-input" placeholder="Enter your email address" required>
+            <label for="pass"><i class="fa fa-lock"></i> Password:</label>
+            <input id="pass" type="password" name="pwd" class="cm-input" placeholder="Enter your password" required>
+            <button type="submit" class="btn-signup">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="faculty-login.html">Login</a></p>
+    </div>
+</body>
+</html>

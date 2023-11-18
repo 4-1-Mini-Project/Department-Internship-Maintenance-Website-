@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Menu with Images</title>
+    <link rel="stylesheet" type="text/css" href="student-dashboard.css">
+</head>
+<body>
+    <h1 style="text-align: center; font-family: Arial,sans-serif;">Student Dashboard</h1>
+        <div class="header">
+            <a id="logout" href="index.html">
+                <img id="image-overlay" src="logout.png" alt="logout">
+            </a>
+        </div>
+        <div class="container mt-3">
+            <table class="Table">
+                <thead>
+                        <th>Student Name</th>
+                        <th>Roll No</th>
+                        <th>Phone No</th>
+                        <th>Year</th>
+                        <th>Branch</th>
+                        <th>Company</th>
+                        <th>Stipend</th>
+                        <th>Location</th>
+                        <th>Start date</th>
+                        <th>End date</th>
+                    </thead>
+                    <tbody id="tbody1"></tbody>
+                </table>
+            </div>
+    <script type="module">
+
+        //---------reference-------//
+        var stdNo = 0;
+        var tbody = document.getElementById('tbody1');
+        
+        
+        function AddItemToTable(Student_Name, Roll_No, Phone_No, Year, Branch, Company, Stipend, Location, Start_date, End_date){
+            let trow = document.createElement("tr");
+            //let td1 = document.createElement("td");
+            let td2 = document.createElement("td");
+            let td3 = document.createElement("td");
+            let td4 = document.createElement("td");
+            let td5 = document.createElement("td");
+            let td6 = document.createElement("td");
+            let td7 = document.createElement("td");
+            let td8 = document.createElement("td");
+            let td9 = document.createElement("td");
+            let td10 = document.createElement("td");
+            let td11 = document.createElement("td");
+        
+        
+            //td1.innerHTML = ++stdNo;
+            td2.innerHTML = Student_Name;
+            td3.innerHTML = Roll_No;
+            td4.innerHTML = Phone_No;
+            td5.innerHTML = Year;
+            td6.innerHTML = Branch;
+            td7.innerHTML = Company;
+            td8.innerHTML = Stipend;
+            td9.innerHTML = Location;
+            td10.innerHTML = Start_date;
+            td11.innerHTML = End_date;
+            
+        
+            //trow.appendChild(td1);
+            trow.appendChild(td2);
+            trow.appendChild(td3);
+            trow.appendChild(td4);
+            trow.appendChild(td5);
+            trow.appendChild(td6);
+            trow.appendChild(td7);
+            trow.appendChild(td8);
+            trow.appendChild(td9);
+            trow.appendChild(td10);
+            trow.appendChild(td11);
+        
+            tbody.appendChild(trow);
+        }
+        
+        
+        function AddAllItemsToTable(TheStudent){
+            stdNo = 0;
+            tbody.innerHTML = "";
+            TheStudent.forEach(element => {
+                AddItemToTable(element.Student_Name, element.Roll_No, element.Phone_No, element.Year, element.Branch, element.Company, element.Stipend, element.Location, element.Start_date, element.End_date);
+            });
+        }
+        
+        
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyD_GeKR99vlehWCqtmpH9h8CSNtH3V1IOc",
+            authDomain: "testing-6263c.firebaseapp.com",
+            databaseURL: "https://testing-6263c-default-rtdb.firebaseio.com",
+            projectId: "testing-6263c",
+            storageBucket: "testing-6263c.appspot.com",
+            messagingSenderId: "214164694721",
+            appId: "1:214164694721:web:9d583ee0b8d716d6369640"
+        };
+        
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        
+        import {getDatabase, ref, child, onValue, get}
+        from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+        
+        const db = getDatabase();
+        
+        //--------GETTING ALL DATA---------//
+            function GetAllDataOnce(){
+                const dbRef = ref(db);
+                get(child(dbRef,"TheStudents"))
+                .then((snapshot)=>{
+                    var students=[];
+                    snapshot.forEach(childSnapshot=>{
+                        students.push(childSnapshot.val());
+                    });
+                    AddAllItemsToTable(students);
+        
+                });
+            }
+        
+            function GetAllDataRealtime() {
+                    const dbRef = ref(db, "TheStudents");
+                    onValue(dbRef, (snapshot) => {
+                        const students = [];
+                        snapshot.forEach((childSnapshot) => {
+                            students.push(childSnapshot.val());
+                        });
+                        AddAllItemsToTable(students);
+                    });
+                }
+                window.onload = GetAllDataRealtime;
+        
+        </script>
+        </body>
+        </html>

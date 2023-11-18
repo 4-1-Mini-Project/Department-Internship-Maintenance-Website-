@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Menu with Images</title>
+    <style>
+        /* CSS for styling the menu */
+        table {
+            align-items: center;
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            border-radius: 10px;
+            width: 100%;
+            border-color: #333;
+        }
+
+        th, td {
+            border: none;
+            text-align: center;
+            padding: 12px;
+            border-radius: 5px 5px 0 0;
+        }
+
+        th {
+            background-color: rgb(226, 191, 238);
+        }
+
+        tr:nth-child(even) {
+            background-color: black;
+        }
+
+        tr:hover {
+            background-color: black;
+        }
+
+        th, td {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .menu {
+            position: fixed;
+            top: 10%;
+            left: 0;
+            width: 100%;
+            background: #333;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+            padding: 0;
+        }
+
+        .menu li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .menu li a:hover {
+            background-color: #555;
+        }
+
+        /* CSS for displaying images with forms */
+        .image-container {
+
+            display: none;
+            width: 100%;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-top: 10%;
+        }
+
+        .item-one { /* Updated class name */
+            background-image: url('bg1.jpg');
+        }
+
+        .item-two { /* Updated class name */
+            background-image: url('bg2.jpg');
+        }
+
+        .person-details-form {
+            top: 50%;
+            left: 50%;
+            align-content: center;
+            text-align: center;
+            display: contents;
+            color: #ede5ee;
+        }
+
+        
+
+        .person-details-form input {
+            
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            border-color: blueviolet;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #333;
+            color: #fff;
+            text-align: center;
+        }
+
+        #logout {
+            position: absolute;
+            top: 10%;
+            right: 2%;
+        }
+
+        #image-overlay {
+            width: 55px; 
+            mix-blend-mode: lighten;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Student Dashboard</h1>
+        <a id="logout" href="index.html">
+            <img id="image-overlay" src="logout.png" alt="logout">
+        </a>
+    </div>
+    <div class="menu">
+        <ul>
+            <li><a href="#" class="menu-item" data-target="item-one">Internship Details</a></li>
+            <li><a href="#" class="menu-item" data-target="item-two">Form</a></li>
+        </ul>
+    </div>
+
+    <div class="image-container item-one" id="item-one">
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Year</th>
+                        <th>Roll No</th>
+                        <th>Company Name</th>
+                        <th>Role</th>
+                        <th>Stipend</th>
+                        <th>Duration</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody id="internship-details-list">
+                    <!-- Existing internship details will be displayed here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="image-container item-two" id="item-two">
+        <div class="person-details-form">
+            <h2>Enter Internship Details</h2>
+            <form id="internship-details-form">
+                <label for="student-name">Student Name:</label>
+                <input type="text" id="student-name" name="student-name" required><br><br>
+
+                <label for="year">Year:</label>
+                <input type="text" id="year" name="year" required><br><br>
+
+                <label for="roll-no">Roll No:</label>
+                <input type="text" id="roll-no" name="roll-no" required><br><br>
+
+                <label for="company-name">Company Name:</label>
+                <input type="text" id="company-name" name="company-name" required><br><br>
+
+                <label for="role">Role:</label>
+                <input type="text" id="role" name="role" required><br><br>
+
+                <label for="stipend">Stipend:</label>
+                <input type="text" id="stipend" name="stipend" required><br><br>
+
+                <label for="duration">Duration of Internship:</label>
+                <input type="text" id="duration" name="duration" required><br><br>
+
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required><br><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for handling the menu interactions
+        const menuItems = document.querySelectorAll('.menu-item');
+        const imageContainers = document.querySelectorAll('.image-container');
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = item.getAttribute('data-target');
+                const imageContainer = document.getElementById(targetId);
+                const currentlyDisplayed = imageContainer.style.display;
+
+                // Hide all image containers
+                imageContainers.forEach(container => {
+                    container.style.display = 'none';
+                });
+
+                // Show the selected image container if it's not currently displayed
+                if (currentlyDisplayed !== 'block') {
+                    imageContainer.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
