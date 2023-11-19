@@ -10,8 +10,8 @@
     <div class="header">
         <h1>Student Dashboard</h1>
 
-        <a id="logout" href="index.html">
-            <img id="image-overlay" src="logout.png" alt="logout">
+        <a id="logout" href="student-login.html">
+            <img id="image-overlay" src="logout.png" alt="logout" onclick="signOut()">
         </a>
     </div>
     <div class="menu">
@@ -36,6 +36,7 @@
                         <tr>
                            <th>Roll No <span class="icon-arrow">&UpArrow;</span></th> 
                            <th>Student Name</th>
+                           <th>Phone Number</th>
                            <th>Year <span class="icon-arrow">&UpArrow;</span></th>
                            <th>Branch <span class="icon-arrow">&UpArrow;</span></th>
                            <th>Company Name</th>
@@ -112,21 +113,21 @@
                     <div>
                         <label class="formbold-form-label">Year*</label>
                         <select class="formbold-form-input" name="year" id="year" required>
-                        <option value="first">I</option>
-                        <option value="second">II</option>
-                        <option value="third">III</option>
-                        <option value="fourth">IV</option>
+                        <option value="1">I</option>
+                        <option value="2">II</option>
+                        <option value="3">III</option>
+                        <option value="4">IV</option>
                         </select>
                     </div>
             
                     <div>
                         <label class="formbold-form-label">Branch*</label>
                         <select class="formbold-form-input" name="branch" id="branch" required>
-                        <option value="aiml">AIML</option>
-                        <option value="cse">CSE</option>
-                        <option value="ece">ECE</option>
-                        <option value="eee">EEE</option>
-                        <option value="it">IT</option>
+                        <option value="AIML">AIML</option>
+                        <option value="CSE">CSE</option>
+                        <option value="ECE">ECE</option>
+                        <option value="EEE">EEE</option>
+                        <option value="IT">IT</option>
                         </select>
                     </div>
                 </div>
@@ -167,12 +168,12 @@
                 
                 <div class="formbold-mb-3">
                   <label for="dob" class="formbold-form-label"> Start Date* </label>
-                  <input type="date" name="dob" id="dob" class="formbold-form-input" required/>
+                  <input type="date" name="dob" id="doj" class="formbold-form-input" required/>
                 </div>
                 
                 <div class="formbold-mb-3">
                   <label for="dob" class="formbold-form-label"> End Date* </label>
-                  <input type="date" name="dob" id="dob" class="formbold-form-input" required/>
+                  <input type="date" name="dob" id="doe" class="formbold-form-input" required/>
                 </div>
             
               <button class="formbold-btn">Submit</button>
@@ -182,11 +183,9 @@
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/polyfills.umd.js"></script>
-
-     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-    <script src="student-dashboard.js"></script>
+    <script defer src="student-dashboard.js"></script>
 </body>
 </html>
