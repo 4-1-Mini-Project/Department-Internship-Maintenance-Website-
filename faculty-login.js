@@ -37,7 +37,7 @@ studentLoginForm.addEventListener('submit', (e) => {
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
       // User is signed in, redirect to the student dashboard
-      window.location.href = 'faculty-dashboard.html';
+      window.location.href = 'faculty_dashboard.html';
     })
     .catch((error) => {
       // Handle login errors

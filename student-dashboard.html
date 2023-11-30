@@ -7,24 +7,26 @@
     <link rel="stylesheet" type="text/css" href="student-dashboard.css">
 </head>
 <body>
-    <div class="header">
-        <h1>Student Dashboard</h1>
+      <div class="header">
+      <h1>Welcome to the Student Portal</h1>
 
         <a id="logout" href="student-login.html">
             <img id="image-overlay" src="logout.png" alt="logout" onclick="signOut()">
         </a>
+    
+    
+    
+        <div class="menu">
+          <ul>
+              <li><a href="#" class="menu-item" data-target="item-one" id = "loadData">Display Details</a></li>
+              <li><a href="#" class="menu-item" data-target="item-two">Fill Internship Form</a></li>
+          </ul>
+      </div>
     </div>
-    <div class="menu">
-        <ul>
-            <li><a href="#" class="menu-item" data-target="item-one" id = "loadData">Internship Details</a></li>
-            <li><a href="#" class="menu-item" data-target="item-two">Form</a></li>
-        </ul>
-    </div>
-
     <div class="container" id="item-one">
         <main class="table">
             <section class="table__header">
-                <h1>Student-Interns</h1>
+                <h2>Student-Interns</h2>
                 <div class="input-group">
                     <input type="search" placeholder="Search Data...">
                     <img src="search.png" alt="">
@@ -58,10 +60,9 @@
             <div class="formbold-main-wrapper">
                 <div class="formbold-form-wrapper">
                   <div class="formbold-event-wrapper">
-                   <img src="sdash.png"> 
                   <form id = "internship-details-form" action="https://formbold.com/s/FORM_ID" method="POST">
                     <h3 class="formbold-form-title">Enter your Details</h3>
-              
+                    <img src="sdash.png">
                     <div class="formbold-input-flex">
                       <div>
                         <label for="firstname" class="formbold-form-label">
