@@ -16,7 +16,7 @@ body {
 h1 {
     font-size: 48px;
     margin-top: 20px; /* Move the text to the top */
-    color: #f1f3f5;
+    color: rgb(19, 160, 12);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     animation: bounce 2s infinite;
 }
@@ -62,7 +62,7 @@ h1 {
 }
 
 .menu li a {
-    background-color: #007BFF;
+    background-color: rgb(13, 255, 0);
     color: #fff;
     font-size: 20px;
     border: none;
@@ -77,7 +77,7 @@ h1 {
 }
 
 .menu li a:hover {
-    background-color: #0056b3;
+    background-color: #09b300;
     transform: scale(1.05);
 }
 
@@ -121,7 +121,7 @@ h1 {
 
 #image-overlay {
     width: 55px; 
-    mix-blend-mode: lighten;
+    mix-blend-mode: difference;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -160,7 +160,7 @@ body {
   font-weight: 700;
   font-size: 28px;
   line-height: 34px;
-  color: #dbe0df;
+  color: rgb(8, 126, 34);
   width: 100%;
   margin-bottom: 15px;
 }
@@ -211,7 +211,7 @@ body {
 }
 
 .formbold-form-title {
-  color: #98e0eb;
+  color: rgb(5, 51, 27);
   font-weight: 600;
   font-size: 28px;
   line-height: 35px;
@@ -233,7 +233,7 @@ body {
   padding: 13px 22px;
   border-radius: 5px;
   border: 1px solid #dde3ec86;
-  background: #ffffff8b;
+  background: #cae5c98b;
   font-weight: 500;
   font-size: 16px;
   color: #0b0b0b;
@@ -245,7 +245,7 @@ body {
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
 }
 .formbold-form-label {
-  color: #d3d3d6;
+  color: rgb(1, 36, 24);
   font-size: 14px;
   line-height: 24px;
   display: block;
@@ -270,13 +270,14 @@ body {
   padding: 14px 25px;
   border: none;
   font-weight: 500;
-  background-color: #6a64f1;
+  background-color: rgb(13, 255, 0);
   color: white;
   cursor: pointer;
   margin-top: 25px;
 }
 .formbold-btn:hover {
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.05);
+  background-color: #09b300;
 }
 
 #item-two {
@@ -284,7 +285,7 @@ body {
     display: none;
     justify-content: center;
     width: 100%;
-    background-image: url(stu-tab-bg.jpg);
+    background-image: url(stu-form-bg.jpg);
     background-attachment: fixed;
     background-size: cover;
 }

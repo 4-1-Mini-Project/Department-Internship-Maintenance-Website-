@@ -1,3 +1,66 @@
+const search = document.querySelector('.input-group input'),
+    table_headings = document.querySelectorAll('thead th'),
+    table = document.getElementById("myTable");
+    table_rows = table.getElementsByTagName("tr");
+
+function searchTable() {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("searchInput");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        var display = "none";
+  
+        // Loop through all table cells in the current row
+        for (j = 0; j < tr[i].cells.length; j++) {
+          td = tr[i].cells[j];
+          if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              display = "";
+              break; // Break the inner loop if a match is found in any cell
+            }
+          }
+        }
+        
+        // Set the display property for the current row based on the match status
+        tr[i].style.display = display; 
+    }
+}
+
+// 2. Sorting | Ordering data of HTML table
+console.log(table_headings);
+console.log(table_rows);
+table_headings.forEach((head, i) => {
+    let sort_asc = true;
+    head.onclick = () => {
+        table_headings.forEach(head => head.classList.remove('active'));
+        head.classList.add('active');
+
+        document.querySelectorAll('td').forEach(td => td.classList.remove('active'));
+        for (let j = 1; j < table_rows.length; j++) {
+            table_rows[j].querySelectorAll('td')[i].classList.add('active');
+        }
+
+        head.classList.toggle('asc', sort_asc);
+        sort_asc = head.classList.contains('asc') ? false : true;
+
+        sortTable(i, sort_asc);
+    }
+});
+
+function sortTable(column, sort_asc) {
+    [...table_rows].slice(1).sort((a, b) => {
+        let first_row = a.querySelectorAll('td')[column].textContent.toLowerCase(),
+            second_row = b.querySelectorAll('td')[column].textContent.toLowerCase();
+
+        return sort_asc ? (first_row < second_row ? 1 : -1) : (first_row < second_row ? -1 : 1);
+    })
+    .map(sorted_row => document.querySelector('tbody').appendChild(sorted_row));
+}
+
+
 document.addEventListener("DOMContentLoaded", function () {
     // Get all menu items
     var menuItems = document.querySelectorAll('.menu-item');
@@ -131,10 +194,12 @@ function handleUserEmail(email) {
           .then(() => {
                 // Clear the form
                 console.log("Document successfully written!");
+                alert("Form details saved successfully!");
               dataForm.reset();
           })
           .catch((error) => {
               console.error("Error adding document: ", error);
+              alert("Error saving form details!");
           });
       });
           

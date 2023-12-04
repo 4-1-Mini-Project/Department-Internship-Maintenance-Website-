@@ -59,7 +59,7 @@ studentSignupForm.addEventListener('submit', (e) => {
     .then((userCredential) => {
       // User account created successfully
       var user = userCredential.user;
-      alert('Account created successfully! You can now log in.');
+      alert('Account created successfully');
       // Redirect to the login page
       window.location.href = 'student-dashboard.html';
     })

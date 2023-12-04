@@ -28,23 +28,23 @@
             <section class="table__header">
                 <h2>Student-Interns</h2>
                 <div class="input-group">
-                    <input type="search" placeholder="Search Data...">
+                    <input type="search" placeholder="Search Data..." id="searchInput" onkeyup="searchTable()">
                     <img src="search.png" alt="">
                 </div>
             </section>
-            <section class="table__body">
+            <section class="table__body" id="myTable">
                 <table id = "interns">
                     <thead>
                         <tr>
                            <th>Roll No <span class="icon-arrow">&UpArrow;</span></th> 
-                           <th>Student Name</th>
-                           <th>Phone Number</th>
+                           <th>Student Name <span class="icon-arrow">&UpArrow;</span></th>
+                           <th>Phone Number <span class="icon-arrow">&UpArrow;</span></th>
                            <th>Year <span class="icon-arrow">&UpArrow;</span></th>
                            <th>Branch <span class="icon-arrow">&UpArrow;</span></th>
-                           <th>Company Name</th>
+                           <th>Company Name <span class="icon-arrow">&UpArrow;</span></th>
                            <th>Stipend <span class="icon-arrow">&UpArrow;</span></th>
-                           <th>Duration</th>
-                           <th>Location</th>
+                           <th>Duration <span class="icon-arrow">&UpArrow;</span></th>
+                           <th>Location <span class="icon-arrow">&UpArrow;</span></th>
                         </tr>
                     </thead>
                     <tbody id="internship-details-list">

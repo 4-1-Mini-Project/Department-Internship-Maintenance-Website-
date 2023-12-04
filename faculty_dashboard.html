@@ -11,11 +11,15 @@
  </head>
  
  <body>
+    <a id="logout" href="faculty-login.html">
+        <img id="image-overlay" src="logout.png" alt="logout" onclick="signOut()">
+    </a>
      <main class="table">
          <section class="table__header">
              <h1>Student-Interns</h1>
+
              <div class="input-group">
-                 <input type="search" placeholder="Search Data...">
+                 <input type="search" placeholder="Search Data..." id="searchInput" onkeyup="searchTable()">
                  <img src="search.png" alt="">
              </div>
              <div class="export__file">
@@ -30,18 +34,18 @@
                  </div>
              </div>
          </section>
-         <section class="table__body">
+         <section class="table__body" id="myTable">
              <table id = "interns">
                  <thead>
                      <tr>
                         <th>Roll No <span class="icon-arrow">&UpArrow;</span></th> 
-                        <th>Student Name</th>
+                        <th>Student Name<span class="icon-arrow">&UpArrow;</span></th>
                         <th>Year <span class="icon-arrow">&UpArrow;</span></th>
                         <th>Branch <span class="icon-arrow">&UpArrow;</span></th>
-                        <th>Company Name</th>
+                        <th>Company Name<span class="icon-arrow">&UpArrow;</span></th>
                         <th>Stipend <span class="icon-arrow">&UpArrow;</span></th>
-                        <th>Duration</th>
-                        <th>Location</th>
+                        <th>Duration<span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Location<span class="icon-arrow">&UpArrow;</span></th>
                      </tr>
                  </thead>
                  <tbody id="internship-details-list">
