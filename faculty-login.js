@@ -61,7 +61,7 @@ studentSignupForm.addEventListener('submit', (e) => {
       var user = userCredential.user;
       alert('Account created successfully!');
       // Redirect to the login page
-      window.location.href = 'faculty-dashboard.html';
+      window.location.href = 'faculty_dashboard.html';
     })
     .catch((error) => {
       // Handle signup errors

@@ -1,3 +1,4 @@
+//Searching the table
 const search = document.querySelector('.input-group input'),
     table_headings = document.querySelectorAll('thead th'),
     table = document.getElementById("myTable");
@@ -29,9 +30,7 @@ function searchTable() {
     }
 }
 
-// 2. Sorting | Ordering data of HTML table
-console.log(table_headings);
-console.log(table_rows);
+// Sorting | Ordering data of HTML table
 table_headings.forEach((head, i) => {
     let sort_asc = true;
     head.onclick = () => {
@@ -67,170 +66,52 @@ function sortTable(column, sort_asc) {
 const pdf_btn = document.querySelector('#toPDF');
 
 function generatePDF() {
-    // Initialize jsPDF
-    console.log(jsPDF);
-    var doc = new jsPDF();
 
-    // Add the table to the PDF
-    doc.autoTable({ html: '#interns' });
+    var sTable = document.getElementById('myTable').innerHTML;
 
-    // Save the PDF
-    doc.save('table.pdf');
+        var style = "<style>";
+        style = style + "table {width: 100%;font: 17px Calibri;}";
+        style = style + "table, th, td {border: solid 1px #DDD; border-collapse: collapse;";
+        style = style + "padding: 2px 3px;text-align: center;}";
+        style = style + "</style>";
+
+        // CREATE A WINDOW OBJECT.
+        var win = window.open('', '', 'height=700,width=700');
+
+        win.document.write('<html><head>');
+        win.document.write('<title>Profile</title>');   // <title> FOR PDF HEADER.
+        win.document.write(style);          // ADD STYLE INSIDE THE HEAD TAG.
+        win.document.write('</head>');
+        win.document.write('<body>');
+        win.document.write(sTable);         // THE TABLE CONTENTS INSIDE THE BODY TAG.
+        win.document.write('</body></html>');
+
+        win.document.close(); 	// CLOSE THE CURRENT WINDOW.
+
+        win.print();    // PRINT THE CONTENTS.
   }
   
   pdf_btn.addEventListener('click', generatePDF);
 
-
-// 4. Converting HTML table to JSON
-
-const json_btn = document.querySelector('#toJSON');
-
-const toJSON = function (table) {
-    let table_data = [],
-        t_head = [],
-
-        t_headings = table.querySelectorAll('th'),
-        t_rows = table.querySelectorAll('tbody tr');
-
-    for (let t_heading of t_headings) {
-        let actual_head = t_heading.textContent.trim().split(' ');
-
-        t_head.push(actual_head.splice(0, actual_head.length - 1).join(' ').toLowerCase());
-    }
-
-    t_rows.forEach(row => {
-        const row_object = {},
-            t_cells = row.querySelectorAll('td');
-
-        t_cells.forEach((t_cell, cell_index) => {
-            const img = t_cell.querySelector('img');
-            if (img) {
-                row_object['customer image'] = decodeURIComponent(img.src);
-            }
-            row_object[t_head[cell_index]] = t_cell.textContent.trim();
-        })
-        table_data.push(row_object);
-    })
-
-    return JSON.stringify(table_data, null, 4);
-}
-
-json_btn.onclick = () => {
-    const json = toJSON(customers_table);
-    downloadFile(json, 'json')
-}
-
-// 5. Converting HTML table to CSV File
-
-const csv_btn = document.querySelector('#toCSV');
-
-const toCSV = function (table) {
-    // Code For SIMPLE TABLE
-    // const t_rows = table.querySelectorAll('tr');
-    // return [...t_rows].map(row => {
-    //     const cells = row.querySelectorAll('th, td');
-    //     return [...cells].map(cell => cell.textContent.trim()).join(',');
-    // }).join('\n');
-
-    const t_heads = table.querySelectorAll('th'),
-        tbody_rows = table.querySelectorAll('tbody tr');
-
-    const headings = [...t_heads].map(head => {
-        let actual_head = head.textContent.trim().split(' ');
-        return actual_head.splice(0, actual_head.length - 1).join(' ').toLowerCase();
-    }).join(',') + ',' + 'image name';
-
-    const table_data = [...tbody_rows].map(row => {
-        const cells = row.querySelectorAll('td'),
-            img = decodeURIComponent(row.querySelector('img').src),
-            data_without_img = [...cells].map(cell => cell.textContent.replace(/,/g, ".").trim()).join(',');
-
-        return data_without_img + ',' + img;
-    }).join('\n');
-
-    return headings + '\n' + table_data;
-}
-
-csv_btn.onclick = () => {
-    const csv = toCSV(customers_table);
-    downloadFile(csv, 'csv', 'customer orders');
-}
-
-// 6. Converting HTML table to EXCEL File
+// Converting HTML table to EXCEL File
 
 const excel_btn = document.querySelector('#toEXCEL');
-
+const my_table = document.querySelector('#myTable');
 const toExcel = function (table) {
-    // Code For SIMPLE TABLE
-    // const t_rows = table.querySelectorAll('tr');
-    // return [...t_rows].map(row => {
-    //     const cells = row.querySelectorAll('th, td');
-    //     return [...cells].map(cell => cell.textContent.trim()).join('\t');
-    // }).join('\n');
-
-    const t_heads = table.querySelectorAll('th'),
-        tbody_rows = table.querySelectorAll('tbody tr');
-
-    const headings = [...t_heads].map(head => {
-        let actual_head = head.textContent.trim().split(' ');
-        return actual_head.splice(0, actual_head.length - 1).join(' ').toLowerCase();
-    }).join('\t') + '\t' + 'image name';
-
-    const table_data = [...tbody_rows].map(row => {
-        const cells = row.querySelectorAll('td'),
-            img = decodeURIComponent(row.querySelector('img').src),
-            data_without_img = [...cells].map(cell => cell.textContent.trim()).join('\t');
-
-        return data_without_img + '\t' + img;
-    }).join('\n');
-
-    return headings + '\n' + table_data;
+    $(table).table2excel({
+		exclude: ".no-export",
+		filename: "download",
+		fileext: ".xls",
+		exclude_links: true,
+		exclude_inputs: true
+	});
 }
 
 excel_btn.onclick = () => {
-    const excel = toExcel(customers_table);
-    downloadFile(excel, 'excel');
-}
-
-const downloadFile = function (data, fileType, fileName = '') {
-    const a = document.createElement('a');
-    a.download = fileName;
-    const mime_types = {
-        'json': 'application/json',
-        'csv': 'text/csv',
-        'excel': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-    }
-    a.href = `
-        data:${mime_types[fileType]};charset=utf-8,${encodeURIComponent(data)}
-    `;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
+    const excel = toExcel(my_table);
 }
 
 
-const menuItems = document.querySelectorAll('.menu-item');
-        const imageContainers = document.querySelectorAll('.image-container');
-
-        menuItems.forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = item.getAttribute('data-target');
-                const imageContainer = document.getElementById(targetId);
-                const currentlyDisplayed = imageContainer.style.display;
-
-                // Hide all image containers
-                imageContainers.forEach(container => {
-                    container.style.display = 'none';
-                });
-
-                // Show the selected image container if it's not currently displayed
-                if (currentlyDisplayed !== 'block') {
-                    imageContainer.style.display = 'block';
-                }
-            });
-        });
- 
 // Initialize Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyCmpwwd-pActSCa32M2WT2WGTqkndSP6_E",
@@ -245,15 +126,9 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const auth = firebase.auth();
-
-
 const dataList = document.getElementById('internship-details-list');
 
-
-// Liste
-// Event listener for the form submission
-
-// Function to fetch user-specific data
+// Function to fetch students data
 document.addEventListener('DOMContentLoaded', (e) => {
         db.collection('internships').get()
         .then((querySnapshot) => {
@@ -287,7 +162,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
                     <td>${location}</td>
                 `;
                 dataList.appendChild(newRow);
-                console.log(dataList)
             });
             }, (error) => {
                 console.error("Error fetching data:", error);
@@ -297,7 +171,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
 );
 
 
-// Event listener for the form submission
+// Event listener for sign out
 
 function signOut() {
     firebase.auth().signOut().then(() => {
